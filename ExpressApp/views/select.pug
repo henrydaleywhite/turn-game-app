@@ -1,0 +1,92 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    style.
+      body {
+      background-color: black;
+      font-family: Arial, Helvetica, sans-serif;
+      background: url("/background.jpg") no-repeat;
+      }
+      button {
+      display: inline-block;
+      padding: 10;
+      margin: 0;
+      vertical-align: top;
+      }
+      #push {
+        margin-top: 50px;
+      }
+      #close-image img {
+      display: block;
+      height: 200px;
+      padding: 10;
+      }
+      input[type=checkbox]{
+      width: 10px;
+      visibility: hidden;
+      }
+      label {
+      cursor: pointer;
+      text-indent: -9999px;
+      width: 200px;
+      height: 100px;
+      background: grey;
+      display: block;
+      border-radius: 100px;
+      position: relative;
+      }
+      label:after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 90px;
+      height: 90px;
+      background: #fff;
+      border-radius: 90px;
+      transition: 0.3s;
+      }
+      input:checked + label {
+      background: #bada55;
+      }
+      input:checked + label:after {
+      left: calc(100% - 5px);
+      transform: translateX(-100%);
+      }
+      label:active:after {
+      width: 130px;
+      }
+  body
+    h1= display_name
+    form(method='POST', action='/select')
+      div
+        center
+          img(src='select.png', style='width:50%')
+      div
+        center
+          img(src='start_new_switch.png', style='width:30%')
+      div
+        center
+          input#switch(type='checkbox', name='switch')
+          label(for='switch')
+      div
+        center
+          #push
+            each val, index in gameList
+              button#close-image(name='Game', value=val['pk'], style="background:transparent; border:none; color:transparent;")
+                img(src=val['img'])
+    script.
+      var gameList = !{gameList};
+      var toggleValue = document.getElementById('switch');
+      toggleValue.addEventListener('click', function(){
+      var toggle = document.querySelector("[name=switch]");
+      try {
+      console.log(toggle.value);
+      return toggle.value
+      }
+      catch(e) {
+      console.log(e)
+      return false;
+      }
+      })

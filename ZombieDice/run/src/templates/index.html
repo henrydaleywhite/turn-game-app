@@ -1,0 +1,30 @@
+<style>
+    .normal {
+        color: white;
+        top: 30%;
+        left: 38%;
+        width: 100%;
+        position: fixed;
+    }
+</style>
+<div class="normal">
+    <p>Current scores: {{game_score}}</p>
+    <p>{{last_turn_str}}</p>
+    <p>    
+        {% for image in image_list %}
+            <img src="{{image}}" alt="Image" width="64" height="64">
+        {% endfor %}
+    </p>
+    <p>Current player's cumulative round score is {{round_score}}</p>
+    <p>Current player has accumulated {{shotguns}} shotguns</p>
+    {% if player_turn == "Yes" %}
+        <form action="/gamepage" method="post">
+            <input name="button" type="submit" value="Roll">
+            <input name="next_state" style="visibility: hidden;" value="{{roll_results}}">
+        </form>
+        <form action="/gamepage" method="post">
+            <input name="button" type="submit" value="Bank">
+            <input name="next_state" style="visibility: hidden;" value="{{bank_results}}">
+        </form>
+    {% endif %}
+</div>

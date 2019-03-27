@@ -1,0 +1,108 @@
+doctype html
+html
+  head
+    title GameBox
+    style.
+      * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      }
+      game-box {
+      position: fixed;
+      margin-left: 580px;
+      margin-top: 50px;
+      }
+      img-button {
+      position: fixed;
+      left: 50%;
+      bottom: 0px;
+      transform: translate(-50%, -50%);
+      margin: 0 auto;
+      margin-left: 250px;
+      }
+      body {
+      background-color: black;
+      font-family: Arial, Helvetica, sans-serif;
+      background: url("/background.jpg") no-repeat;
+      }
+      chat-box {
+      font: 13px Helvetica, Arial;
+      color: 000582
+      }
+      chat-form {
+      background: #FFBDDB;
+      padding: 3px;
+      position: absolute;
+      bottom: 0;
+      width: 20%;
+      }
+      chat-form input {
+      border: 0;
+      padding: 10px;
+      width: 85%;
+      margin-right: .5%;
+      }
+      chat-form button {
+      height: 30px;
+      width: 32px;
+      background: #093;
+      border: none;
+      color: white;
+      }
+      #messages {
+      list-style-type: none;
+      margin: 0;
+      margin-top: 0px;
+      padding: 0px;
+      border: 0px;
+      width: 20%;
+      z-index: 1;
+      background: #D6F6FF;
+      }
+      #message li {
+      padding: 5px 10px;
+      width: 20%;
+      z-index: 1;
+      }
+      #messages li:nth-child(odd) {
+      background: #F5DFFB;
+      }
+    style.
+      bg-ele {
+      background-color: white;
+      }
+      .rectangle {
+      height: 1000px;
+      width: 20%;
+      position: fixed;
+      background-color: white;
+      z-index: -1;
+      }
+  body
+    #container
+    div
+      img-button
+        a(href='/select')
+          img(type="image" src='home_button.png' width="16%")
+        a(href='/continue')
+          img(type="image" src='goback_button.png' width="16%")
+    script.
+      var data = "!{gameHTML}";
+      var stringData = String(data);
+      var decodedData = window.atob(data);
+      console.log(decodedData)
+      function displayPhrase(clicked_id) {
+      let phrase = document.getElementsByName(clicked_id)[0].attributes.value.nodeValue;
+      console.log(phrase)
+      }
+      document.getElementById('container').insertAdjacentHTML('beforeend', decodedData)
+
+
+  
+
+
+
+
+
+

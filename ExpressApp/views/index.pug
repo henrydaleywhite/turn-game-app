@@ -1,0 +1,220 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    style.
+      .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+      width: 7%;
+      overflow: auto;
+      margin: auto;
+      position: absolute;
+      margin-left: 60.3%;
+      margin-top: 17.3%;
+      top: 0; left: 0; bottom: 0; right: 0;
+      }
+      .Logo-logo {
+      width: 50%;
+      overflow: auto;
+      margin: auto;
+      position: absolute;
+      margin-top: 14%;
+      top: 0; left: 0; bottom: 0; right: 0;
+      }
+      .Button-align-log {
+      margin-left: 43%;
+      margin-top: 25%;
+      position: absolute;
+      }
+      .Button-align-reg {
+      margin-left: 50%;
+      margin-top: 25%;
+      position: absolute;
+      }
+      @keyframes App-logo-spin {
+      from {
+      transform: rotate(0deg);
+      }
+      to {
+      transform: rotate(360deg);
+      }
+      }
+    style.
+      /* Full-width input fields */
+      input[type=text], input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      }
+      /* Set a style for all buttons */
+      button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      }
+      button:hover {
+      opacity: 0.8;
+      }
+      body {
+      background-color: black;
+      font-family: Arial, Helvetica, sans-serif;
+      background: url("/background.jpg") no-repeat;
+      }
+      /* Extra styles for the cancel button */
+      .cancelbtn {
+      width: auto;
+      padding: 10px 18px;
+      background-color: #f44336;
+      }
+      /* Center the image and position the close button */
+      .imgcontainer {
+      text-align: center;
+      margin: 24px 0 12px 0;
+      position: relative;
+      }
+      img.avatar {
+      width: 4%;
+      border-radius: 50%;
+      }
+      .container {
+      padding: 16px;
+      }
+      span.psw {
+      float: right;
+      padding-top: 16px;
+      }
+      /* The Modal (background) */
+      .modalLogin {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      padding-top: 60px;
+      }
+      .modalRegister {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      padding-top: 60px;
+      }
+      /* Modal Content/Box */
+      .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+      border: 1px solid #888;
+      width: 80%; /* Could be more or less, depending on screen size */
+      }
+      /* The Close Button (x) */
+      .close {
+      position: absolute;
+      right: 25px;
+      top: 0;
+      color: #000;
+      font-size: 35px;
+      font-weight: bold;
+      }
+      .close:hover,
+      .close:focus {
+      color: red;
+      cursor: pointer;
+      }
+      /* Add Zoom Animation */
+      .animate {
+      -webkit-animation: animatezoom 0.6s;
+      animation: animatezoom 0.6s
+      }
+      @-webkit-keyframes animatezoom {
+      from {-webkit-transform: scale(0)}
+      to {-webkit-transform: scale(1)}
+      }
+      @keyframes animatezoom {
+      from {transform: scale(0)}
+      to {transform: scale(1)}
+      }
+      /* Change styles for span and cancel button on extra small screens */
+      @media screen and (max-width: 300px) {
+      span.psw {
+      display: block;
+      float: none;
+      }
+      .cancelbtn {
+      width: 100%;
+      }
+      }
+  body
+    h1= message
+    
+    .count-particles
+      span.js-count-particles --
+      |  particles
+    #particles-js
+    div
+      img.Logo-logo(src='gamebox.png', alt='logo')
+    div
+      img.App-logo(src='/testimage.png', alt='logo')
+    div
+      button.Button-align-log(onclick="document.getElementById('id01').style.display='block'", style='width:auto;') Login
+      button.Button-align-reg(onclick="document.getElementById('id02').style.display='block'", style='width:auto;') Register
+    #id01.modalLogin
+      form.modal-content.animate(action='/login', method='POST')
+        .imgcontainer
+          span.close(onclick="document.getElementById('id01').style.display='none'", title='Close Modal') ×
+          img.avatar(src='bunny.png', alt='Avatar')
+        .container
+          label(for='usernameLogin')
+            b Username
+          input(type='text', placeholder='Enter Username', name='usernameLogin', required='')
+          label(for='passwordLogin')
+            b Password
+          input(type='password', placeholder='Enter Password', name='passwordLogin', required='')
+          button(type='submit') Login
+    #id02.modalRegister
+      // //'username', 'password', 'email', and 'display_name'
+      form.modal-content.animate(action='/register', method='POST')
+        .imgcontainer
+          span.close(onclick="document.getElementById('id02').style.display='none'", title='Close Modal') ×
+          img.avatar(src='turtle.png', alt='Avatar')
+        .container
+          label(for='usernameRegister')
+            b Username
+          input(type='text', placeholder='Enter Username', name='usernameRegister', required='')
+          label(for='passwordRegister')
+            b Password
+          input(type='password', placeholder='Enter Password', name='passwordRegister', required='')
+          label(for='email')
+            b Email
+          input(type='text', placeholder='Enter Email', name='email', required='')
+          label(for='nickname')
+            b Display Name
+          input(type='text', placeholder='Enter Nickname', name='nickname', required='')
+          button(type='submit') Register
+    script.
+      // Get the modal
+      var modalLogin = document.getElementById('id01');
+      var modalRegister = document.getElementById('id02');
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+      if ((event.target == modalLogin) || (event.target == modalRegister)) {
+      modal.style.display = "none";
+      }
+      }

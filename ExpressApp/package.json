@@ -1,0 +1,25 @@
+{
+  "name": "chatapp-nodejs-express-socketio",
+  "version": "1.0.0",
+  "description": "chat app with nodejs express socketio",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chase Ahn",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "joi": "^14.3.1",
+    "mongodb": "^3.1.13",
+    "nodemon": "^1.18.9",
+    "particles.js": "^2.0.0",
+    "pug": "^2.0.3",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2",
+    "socket.io": "^2.2.0"
+  }
+}

@@ -1,0 +1,66 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    style.
+      body {
+      background-color: black;
+      font-family: Arial, Helvetica, sans-serif;
+      background: url("/background.jpg") no-repeat;
+      color: white
+      }
+      * {
+      box-sizing: border-box;
+      }
+      .column {
+      float: left;
+      width: 50%;
+      padding: 100px;
+      height: 300px;
+      }
+      .row:after {
+      content: "";
+      display: table;
+      clear: both;
+      }
+  body
+    .row
+      .column
+        form(method='POST', action='/continue')
+          div
+            center
+              img(src='continue.png', style='width:100%')
+          div
+            center
+              img(src='saved_states.png', style='width:50%')
+          div
+            center
+              each states in saveStates
+                div 
+                  p= states['last_move']
+                  input(type='radio', name='selectedState', value=states['playthrough_id'])
+          center
+            p
+              button.readViewMoreBtn(value='Continue') Continue
+      .column
+        form(method='POST', action='/continue')
+          div
+            center
+              img(src='join_game.png', style='width:100%')
+          div
+            center
+              img(src='inv_list.png', style='width:50%')
+          div
+            center
+              div
+                center 
+                  for room in roomInfo
+                    div 
+                    p= room['host_username']+' has invited you for '+room['game_name']
+                    input(type='radio', name='selectedState', value= room['playthrough_id'])  
+          center
+            p
+              button.readViewMoreBtn(value='Join') Join
+    script.
+      var saveStates = !{saveStates};
+      var roomInfo = !{roomInfo};

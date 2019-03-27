@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    style.
+      body {
+      background-color: black;
+      font-family: Arial, Helvetica, sans-serif;
+      background: url("/background.jpg") no-repeat;
+      color: white
+      }
+  body
+    form(method='POST', action='/game_start')
+      div
+        img.center(src='create_room.png', style='width:50%')
+      div
+        each player in playerList
+          div 
+            b player
+            input(
+              type='text', 
+              placeholder='Enter Username', 
+              name='playerNames'
+              )
+      button creategame
+    script.
+      var playerList = !{playerList};

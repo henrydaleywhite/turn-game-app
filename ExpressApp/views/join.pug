@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    style.
+      body {
+      background-color: black;
+      font-family: Arial, Helvetica, sans-serif;
+      background: url("/background.jpg") no-repeat;
+      color: white
+      }
+  body
+    form(method='POST', action='/select')
+      div
+        center
+          img(src='continue.png', style='width:50%')
+      div
+        center
+          img(src='saved_games.png', style='width:20%')
+      div
+        center
+            div states
+            input(type='radio', name='selectedState', value=states)
+      center
+        p
+          button Continue
+    script.
+      var roomInfo = !{roomInfo};
